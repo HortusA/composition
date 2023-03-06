@@ -1,0 +1,28 @@
+import React from "react";
+
+const Counter = (props)=> {
+    const {value} = props
+    
+
+    const formatCount= () => {
+        return value === 0 ? 'empty': value 
+    }
+    const getBageClasses =() => {
+    let classes = "badge "
+    classes += value === 0 ? "bg-warning" : "bg-primary"
+    return classes
+    }
+    
+        
+    return(
+    <div>
+        <span className="m-2">{props.name}</span>
+        <span className= {getBageClasses()}> {formatCount()}</span>
+        <button className="btn btn-primary btn-sm m-2" onClick={()=> props.onIncrement(props.id)}>+</button>
+        <button className="btn btn-primary btn-sm m-2" onClick={()=> props.onDicrement(props.id)}>-</button>
+        <button className="btn btn-danger btn-sm m-2" onClick={() => props.onDelete(props.id)}>Удалить</button>
+    </div>
+    )
+}
+
+export default Counter
